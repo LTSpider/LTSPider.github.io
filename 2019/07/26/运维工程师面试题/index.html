@@ -328,8 +328,7 @@
 <p>3、TCP/IP原理说一下？TCP有哪几个状态，分别是什么意思？</p>
 <p>笔者回答：以tcp/ip协议为核心,分五层。tcp工作在第4层，主要有tcp和udp协议。其中tcp是可靠协议，udp是不可靠协议。 tcp传输之前，需要建立连接，通过三次握手实现。</p>
 <p>TCP三次握手状态：首先是closed状态，当发起连接后，进入Listen状态，当三次握手之后，进入EST状态。三次握手中间还有一个临时状态:SYN_SENT。SYN_SENT 当应用程序发送ack之后，进入EST状态,如果没有发送，就关闭closed.</p>
-<p>总结：大家一定要熟记tcp状态转换图，参考 <a href="http://blog.csdn.net/wenqian1991/article/details/40110703" target="_blank" rel="noopener">http://blog.csdn.net/wenqian1991/article/details/40110703</a> 如下图：</p>
-<p>image.png</p>
+<p>总结：大家一定要熟记tcp状态转换图，参考 <a href="http://blog.csdn.net/wenqian1991/article/details/40110703" target="_blank" rel="noopener">http://blog.csdn.net/wenqian1991/article/details/40110703</a> </p>
 <p>4、有个客户说访问不到你们的网站，但是你们自己测试内网和外网访问都没问题。你会怎么排查并解决客户的问题？</p>
 <p>笔者回答：我们自己测了都没问题，只是这个客户访问有问题，那肯定是要先联系到这个客户，能远程最好，问一下客户的网络是不是正常的，访问其它的网站有没有问题（比如京东、百度什么的）。如果访问其它网站有问题，那叫客户解决本身网络问题。如果访问其它网站都没问题，用ping和nslookup解析一下我们的网站是不是正常的，让客户用IP来访问我们的网站是否可行，如果IP访问没问题，那就是客户的DNS服务器有问题或者DNS服务器解析不到我们的网站。还有一种可能就是跨运营商访问的问题，比如我们的服务器用的是北方联通、而客户用的是南方移动，就也有可能突然在某个时间段访问不到，这种情况在庞大的中国网络环境中经常发生（一般是靠CDN解决）。还有可能就是我们的网站没有SSL证书，在公网是使用的是http协议，这种情况有可能就是没有用https协议网站被运营商劫持了。</p>
 <p>5、redhat 6.X版本系统 和 centos 7.X版本有啥区别？</p>
