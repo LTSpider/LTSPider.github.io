@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="apple-mobile-web-app-capable" content="LTSpider Blogs">
+    <meta name="apple-mobile-web-app-capable" content="LEETIAN">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no,email=no,adress=no">
     <meta name="browsermode" content="application">
@@ -19,7 +19,12 @@
     <meta name="keywords" content="Shell Linux 运维">
 
 
-    <meta name="description" content="exit 命令12345678#!/bin/bash#退出状态码，最大为255，超过则进行模运算#testing the exit statusvar1=10var2=20var3=$[ $va...">
+    <meta name="description" content="exit 命令#!/bin/bash
+#退出状态码，最大为255，超过则进行模运算
+#testing the exit status
+var1=10
+var2=20
+var3=$[ $var1 ...">
 
 
 
@@ -31,10 +36,10 @@
     <!--Title-->
 
 
-<title>Shell命令运算 | LTSpider Blogs</title>
+<title>Shell命令运算 | LEETIAN</title>
 
 
-    <link rel="alternate" href="/atom.xml" title="LTSpider Blogs" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="LEETIAN" type="application/atom+xml">
 
 
     <link rel="icon" href="/favicon.ico">
@@ -105,7 +110,7 @@
                     <span class="sr-only"></span>
                         <i class="fa fa-bars"></i>
                     </span>
-                    <a class="navbar-brand" href="http://LTSpider.github.io">LTSpider Blogs</a>
+                    <a class="navbar-brand" href="http://LTSpider.github.io">LEETIAN</a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
@@ -198,26 +203,85 @@
     </div>
     
     <div class="post-body post-content">
-        <h5 id="exit-命令"><a href="#exit-命令" class="headerlink" title="exit 命令"></a>exit 命令</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">退出状态码，最大为255，超过则进行模运算</span></span><br><span class="line"><span class="meta">#</span><span class="bash">testing the <span class="built_in">exit</span> status</span></span><br><span class="line">var1=10</span><br><span class="line">var2=20</span><br><span class="line">var3=$[ $var1 + $var2]</span><br><span class="line">echo The answer is $var3</span><br><span class="line">exit 5</span><br></pre></td></tr></table></figure>
+        <h5 id="exit-命令"><a href="#exit-命令" class="headerlink" title="exit 命令"></a>exit 命令</h5><pre><code class="shell">#!/bin/bash
+#退出状态码，最大为255，超过则进行模运算
+#testing the exit status
+var1=10
+var2=20
+var3=$[ $var1 + $var2]
+echo The answer is $var3
+exit 5</code></pre>
+<h5 id="使用expr执行数学运算"><a href="#使用expr执行数学运算" class="headerlink" title="使用expr执行数学运算"></a><strong>使用expr执行数学运算</strong></h5><pre><code class="shell">#!/bin/bash
+#An example of using the expr command
 
-<h5 id="使用expr执行数学运算"><a href="#使用expr执行数学运算" class="headerlink" title="使用expr执行数学运算"></a><strong>使用expr执行数学运算</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">An example of using the expr <span class="built_in">command</span></span></span><br><span class="line"></span><br><span class="line">var1=10</span><br><span class="line">var2=20</span><br><span class="line">var3=`expr $var2 / $var1`</span><br><span class="line">echo "The result is $var3"</span><br></pre></td></tr></table></figure>
+var1=10
+var2=20
+var3=`expr $var2 / $var1`
+echo &quot;The result is $var3&quot;</code></pre>
+<h5 id="使用内联重定向计算表达式"><a href="#使用内联重定向计算表达式" class="headerlink" title="使用内联重定向计算表达式"></a><strong>使用内联重定向计算表达式</strong></h5><pre><code class="shell">#!/bin/bash
 
-<h5 id="使用内联重定向计算表达式"><a href="#使用内联重定向计算表达式" class="headerlink" title="使用内联重定向计算表达式"></a><strong>使用内联重定向计算表达式</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">var1=10.45</span><br><span class="line">var2=43.67</span><br><span class="line">var3=33.2</span><br><span class="line">var4=71</span><br><span class="line"></span><br><span class="line">var5=`bc &lt;&lt;EOF</span><br><span class="line">scale=4</span><br><span class="line">a1 = $var1 * $var2</span><br><span class="line">b1 = $var3 * $var4</span><br><span class="line">a1 + b1</span><br><span class="line">EOF</span><br><span class="line">`</span><br><span class="line">echo The final answer for this mess is $var5</span><br></pre></td></tr></table></figure>
+var1=10.45
+var2=43.67
+var3=33.2
+var4=71
 
-<h5 id="使用方括号执行数学运算"><a href="#使用方括号执行数学运算" class="headerlink" title="使用方括号执行数学运算"></a><strong>使用方括号执行数学运算</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">var1=10</span><br><span class="line">var2=50</span><br><span class="line">var3=45</span><br><span class="line">var4=$[$var1 * ($var2 - $var3)]</span><br><span class="line">echo 'The final result is '$var4</span><br></pre></td></tr></table></figure>
+var5=`bc &lt;&lt;EOF
+scale=4
+a1 = $var1 * $var2
+b1 = $var3 * $var4
+a1 + b1
+EOF
+`
+echo The final answer for this mess is $var5</code></pre>
+<h5 id="使用方括号执行数学运算"><a href="#使用方括号执行数学运算" class="headerlink" title="使用方括号执行数学运算"></a><strong>使用方括号执行数学运算</strong></h5><pre><code class="shell">#!/bin/bash
 
-<h5 id="使用自定义变量"><a href="#使用自定义变量" class="headerlink" title="使用自定义变量"></a><strong>使用自定义变量</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">testing variables</span></span><br><span class="line"></span><br><span class="line">days=10</span><br><span class="line">guest="Katie"</span><br><span class="line">echo "$guest logged in $days days age"</span><br><span class="line">guest="Katie2"</span><br><span class="line">days=5</span><br><span class="line">echo "$guest logged in $days days age"</span><br></pre></td></tr></table></figure>
+var1=10
+var2=50
+var3=45
+var4=$[$var1 * ($var2 - $var3)]
+echo &#39;The final result is &#39;$var4</code></pre>
+<h5 id="使用自定义变量"><a href="#使用自定义变量" class="headerlink" title="使用自定义变量"></a><strong>使用自定义变量</strong></h5><pre><code class="shell">#!/bin/bash
+#testing variables
 
-<h5 id="反引号的使用"><a href="#反引号的使用" class="headerlink" title="反引号的使用"></a><strong>反引号的使用</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">using the backtick character  会把反引号里面当作一条命令来执行</span></span><br><span class="line"></span><br><span class="line">testing=`date`</span><br><span class="line">echo "The date and time are:$testing"</span><br></pre></td></tr></table></figure>
+days=10
+guest=&quot;Katie&quot;
+echo &quot;$guest logged in $days days age&quot;
+guest=&quot;Katie2&quot;
+days=5
+echo &quot;$guest logged in $days days age&quot;</code></pre>
+<h5 id="反引号的使用"><a href="#反引号的使用" class="headerlink" title="反引号的使用"></a><strong>反引号的使用</strong></h5><pre><code class="shell">#!/bin/bash
+#using the backtick character  会把反引号里面当作一条命令来执行
 
-<h5 id="在脚本中使用bc"><a href="#在脚本中使用bc" class="headerlink" title="在脚本中使用bc"></a><strong>在脚本中使用bc</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">var1=100</span><br><span class="line">var2=45</span><br><span class="line">var3=`echo "scale=4; $var1 / $var2" | bc`</span><br><span class="line">echo The answer for this is $var3</span><br></pre></td></tr></table></figure>
+testing=`date`
+echo &quot;The date and time are:$testing&quot;</code></pre>
+<h5 id="在脚本中使用bc"><a href="#在脚本中使用bc" class="headerlink" title="在脚本中使用bc"></a><strong>在脚本中使用bc</strong></h5><pre><code class="shell">#!/bin/bash
+var1=100
+var2=45
+var3=`echo &quot;scale=4; $var1 / $var2&quot; | bc`
+echo The answer for this is $var3</code></pre>
+<h5 id="显示时间和登录者"><a href="#显示时间和登录者" class="headerlink" title="显示时间和登录者"></a><strong>显示时间和登录者</strong></h5><pre><code class="shell">#!/bin/bash
+#This script displays the date and who&#39;s logged on
 
-<h5 id="显示时间和登录者"><a href="#显示时间和登录者" class="headerlink" title="显示时间和登录者"></a><strong>显示时间和登录者</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">This script displays the date and who<span class="string">'s logged on</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">如果想在同一行显示</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">echo</span> -n -e <span class="string">'The time is:\n\n'</span></span></span><br><span class="line">echo The time is:</span><br><span class="line">date</span><br><span class="line">echo The one who has been logged is:</span><br><span class="line">who</span><br></pre></td></tr></table></figure>
+#如果想在同一行显示
+#echo -n -e &#39;The time is:\n\n&#39;
+echo The time is:
+date
+echo The one who has been logged is:
+who</code></pre>
+<h5 id="显示系统变量和转义字符"><a href="#显示系统变量和转义字符" class="headerlink" title="显示系统变量和转义字符"></a><strong>显示系统变量和转义字符</strong></h5><pre><code class="shell">#!/bin/bash
+#display user information from system
 
-<h5 id="显示系统变量和转义字符"><a href="#显示系统变量和转义字符" class="headerlink" title="显示系统变量和转义字符"></a><strong>显示系统变量和转义字符</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">display user information from system</span></span><br><span class="line"></span><br><span class="line">echo "User info fro userId:$USER"</span><br><span class="line">echo UID:$UID</span><br><span class="line">echo HOME:$HOME</span><br><span class="line"><span class="meta">#</span><span class="bash">换行</span></span><br><span class="line">echo -e '\n'      </span><br><span class="line">echo 'The cost of the item is \$15'</span><br></pre></td></tr></table></figure>
+echo &quot;User info fro userId:$USER&quot;
+echo UID:$UID
+echo HOME:$HOME
+#换行
+echo -e &#39;\n&#39;      
+echo &#39;The cost of the item is \$15&#39;</code></pre>
+<h5 id="通过反引号获得当前日期并生成唯一文件名"><a href="#通过反引号获得当前日期并生成唯一文件名" class="headerlink" title="通过反引号获得当前日期并生成唯一文件名"></a><strong>通过反引号获得当前日期并生成唯一文件名</strong></h5><pre><code class="shell">#!/bin/bash
+#copy the /usr/bin directory listing to a log file
 
-<h5 id="通过反引号获得当前日期并生成唯一文件名"><a href="#通过反引号获得当前日期并生成唯一文件名" class="headerlink" title="通过反引号获得当前日期并生成唯一文件名"></a><strong>通过反引号获得当前日期并生成唯一文件名</strong></h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">copy the /usr/bin directory listing to a <span class="built_in">log</span> file</span></span><br><span class="line"></span><br><span class="line">today=`date +%y%m%d`</span><br><span class="line">ls /usr/bin -al &gt; log.$today</span><br></pre></td></tr></table></figure>
-
+today=`date +%y%m%d`
+ls /usr/bin -al &gt; log.$today</code></pre>
 
     </div>
     

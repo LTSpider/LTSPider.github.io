@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="apple-mobile-web-app-capable" content="LTSpider Blogs">
+    <meta name="apple-mobile-web-app-capable" content="LEETIAN">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no,email=no,adress=no">
     <meta name="browsermode" content="application">
@@ -20,7 +20,11 @@
 
 
     <meta name="description" content="sql语句的参数化，可以有效防止sql注入注意：此处不同于python的字符串格式化，全部使用%s占位
-123456789101112131415161718192021222324252627...">
+from pymysql import *
+
+def main():
+
+    find_...">
 
 
 
@@ -32,10 +36,10 @@
     <!--Title-->
 
 
-<title>sql 参数化 | LTSpider Blogs</title>
+<title>sql 参数化 | LEETIAN</title>
 
 
-    <link rel="alternate" href="/atom.xml" title="LTSpider Blogs" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="LEETIAN" type="application/atom+xml">
 
 
     <link rel="icon" href="/favicon.ico">
@@ -106,7 +110,7 @@
                     <span class="sr-only"></span>
                         <i class="fa fa-bars"></i>
                     </span>
-                    <a class="navbar-brand" href="http://LTSpider.github.io">LTSpider Blogs</a>
+                    <a class="navbar-brand" href="http://LTSpider.github.io">LEETIAN</a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
@@ -200,7 +204,48 @@
     
     <div class="post-body post-content">
         <p>sql语句的参数化，可以有效防止sql注入<br>注意：此处不同于python的字符串格式化，全部使用%s占位</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    find_name = input(<span class="string">"请输入物品名称："</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建Connection连接</span></span><br><span class="line">    conn = connect(host=<span class="string">'localhost'</span>,port=<span class="number">3306</span>,user=<span class="string">'root'</span>,password=<span class="string">'mysql'</span>,database=<span class="string">'jing_dong'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">    <span class="comment"># 获得Cursor对象</span></span><br><span class="line">    cs1 = conn.cursor()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 非安全的方式</span></span><br><span class="line">    <span class="comment"># # 输入 " or 1=1 or " (双引号也要输入)</span></span><br><span class="line">    <span class="comment"># sql = 'select * from goods where name="%s"' % find_name</span></span><br><span class="line">    <span class="comment"># print("""sql===&gt;%s&lt;====""" % sql)</span></span><br><span class="line">    <span class="comment"># # 执行select语句，并返回受影响的行数：查询所有数据</span></span><br><span class="line">    <span class="comment"># count = cs1.execute(sql)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 安全的方式</span></span><br><span class="line">    <span class="comment"># 构造参数列表</span></span><br><span class="line">    params = [find_name]</span><br><span class="line">    <span class="comment"># 执行select语句，并返回受影响的行数：查询所有数据</span></span><br><span class="line">    count = cs1.execute(<span class="string">'select * from goods where name=%s'</span>, params)</span><br><span class="line">    <span class="comment"># 注意：</span></span><br><span class="line">    <span class="comment"># 如果要是有多个参数，需要进行参数化</span></span><br><span class="line">    <span class="comment"># 那么params = [数值1, 数值2....]，此时sql语句中有多个%s即可</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 打印受影响的行数</span></span><br><span class="line">    print(count)</span><br><span class="line">    <span class="comment"># 获取查询的结果</span></span><br><span class="line">    <span class="comment"># result = cs1.fetchone()</span></span><br><span class="line">    result = cs1.fetchall()</span><br><span class="line">    <span class="comment"># 打印查询的结果</span></span><br><span class="line">    print(result)</span><br><span class="line">    <span class="comment"># 关闭Cursor对象</span></span><br><span class="line">    cs1.close()</span><br><span class="line">    <span class="comment"># 关闭Connection对象</span></span><br><span class="line">    conn.close()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from pymysql import *
+
+def main():
+
+    find_name = input(&quot;请输入物品名称：&quot;)
+
+    # 创建Connection连接
+    conn = connect(host=&#39;localhost&#39;,port=3306,user=&#39;root&#39;,password=&#39;mysql&#39;,database=&#39;jing_dong&#39;,charset=&#39;utf8&#39;)
+    # 获得Cursor对象
+    cs1 = conn.cursor()
+
+
+    # # 非安全的方式
+    # # 输入 &quot; or 1=1 or &quot; (双引号也要输入)
+    # sql = &#39;select * from goods where name=&quot;%s&quot;&#39; % find_name
+    # print(&quot;&quot;&quot;sql===&gt;%s&lt;====&quot;&quot;&quot; % sql)
+    # # 执行select语句，并返回受影响的行数：查询所有数据
+    # count = cs1.execute(sql)
+
+    # 安全的方式
+    # 构造参数列表
+    params = [find_name]
+    # 执行select语句，并返回受影响的行数：查询所有数据
+    count = cs1.execute(&#39;select * from goods where name=%s&#39;, params)
+    # 注意：
+    # 如果要是有多个参数，需要进行参数化
+    # 那么params = [数值1, 数值2....]，此时sql语句中有多个%s即可
+
+    # 打印受影响的行数
+    print(count)
+    # 获取查询的结果
+    # result = cs1.fetchone()
+    result = cs1.fetchall()
+    # 打印查询的结果
+    print(result)
+    # 关闭Cursor对象
+    cs1.close()
+    # 关闭Connection对象
+    conn.close()
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+
     </div>
     
         <div class="reward" ontouchstart>

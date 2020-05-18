@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <meta http-equiv="Cache-Control" content="no-transform">
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
-    <meta name="apple-mobile-web-app-capable" content="LTSpider Blogs">
+    <meta name="apple-mobile-web-app-capable" content="LEETIAN">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no,email=no,adress=no">
     <meta name="browsermode" content="application">
@@ -19,7 +19,11 @@
     <meta name="keywords" content="Python,pymsql">
 
 
-    <meta name="description" content="12345678910111213141516171819202122232425262728293031from pymysql import *def main():    # 创建Conn...">
+    <meta name="description" content="from pymysql import *
+
+def main():
+    # 创建Connection连接
+    conn = connect(host=&#39;localhost&#3...">
 
 
 
@@ -31,10 +35,10 @@
     <!--Title-->
 
 
-<title>增删改 | LTSpider Blogs</title>
+<title>增删改 | LEETIAN</title>
 
 
-    <link rel="alternate" href="/atom.xml" title="LTSpider Blogs" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="LEETIAN" type="application/atom+xml">
 
 
     <link rel="icon" href="/favicon.ico">
@@ -105,7 +109,7 @@
                     <span class="sr-only"></span>
                         <i class="fa fa-bars"></i>
                     </span>
-                    <a class="navbar-brand" href="http://LTSpider.github.io">LTSpider Blogs</a>
+                    <a class="navbar-brand" href="http://LTSpider.github.io">LEETIAN</a>
                 </div>
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="menu">
@@ -198,13 +202,93 @@
     </div>
     
     <div class="post-body post-content">
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建Connection连接</span></span><br><span class="line">    conn = connect(host=<span class="string">'localhost'</span>,port=<span class="number">3306</span>,database=<span class="string">'jing_dong'</span>,user=<span class="string">'root'</span>,password=<span class="string">'mysql'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">    <span class="comment"># 获得Cursor对象</span></span><br><span class="line">    cs1 = conn.cursor()</span><br><span class="line">    <span class="comment"># 执行insert语句，并返回受影响的行数：添加一条数据</span></span><br><span class="line">    <span class="comment"># 增加</span></span><br><span class="line">    count = cs1.execute(<span class="string">'insert into goods_cates(name) values("硬盘")'</span>)</span><br><span class="line">    <span class="comment">#打印受影响的行数</span></span><br><span class="line">    print(count)</span><br><span class="line"></span><br><span class="line">    count = cs1.execute(<span class="string">'insert into goods_cates(name) values("光盘")'</span>)</span><br><span class="line">    print(count)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># # 更新</span></span><br><span class="line">    <span class="comment"># count = cs1.execute('update goods_cates set name="机械硬盘" where name="硬盘"')</span></span><br><span class="line">    <span class="comment"># # 删除</span></span><br><span class="line">    <span class="comment"># count = cs1.execute('delete from goods_cates where id=6')</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 提交之前的操作，如果之前已经之执行过多次的execute，那么就都进行提交</span></span><br><span class="line">        conn.commit()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 关闭Cursor对象</span></span><br><span class="line">    cs1.close()</span><br><span class="line">    <span class="comment"># 关闭Connection对象</span></span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+        <pre><code class="python">from pymysql import *
 
-<hr>
-<h2 id="查询一行数据"><a href="#查询一行数据" class="headerlink" title="查询一行数据"></a>查询一行数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建Connection连接</span></span><br><span class="line">    conn = connect(host=<span class="string">'localhost'</span>,port=<span class="number">3306</span>,user=<span class="string">'root'</span>,password=<span class="string">'mysql'</span>,database=<span class="string">'jing_dong'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">    <span class="comment"># 获得Cursor对象</span></span><br><span class="line">    cs1 = conn.cursor()</span><br><span class="line">    <span class="comment"># 执行select语句，并返回受影响的行数：查询一条数据</span></span><br><span class="line">    count = cs1.execute(<span class="string">'select id,name from goods where id&gt;=4'</span>)</span><br><span class="line">    <span class="comment"># 打印受影响的行数</span></span><br><span class="line">    print(<span class="string">"查询到%d条数据:"</span> % count)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">    <span class="comment"># 获取查询的结果</span></span><br><span class="line">    result = cs1.fetchone()</span><br><span class="line">    <span class="comment"># 打印查询的结果</span></span><br><span class="line">    print(result)</span><br><span class="line">    <span class="comment"># 获取查询的结果</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 关闭Cursor对象</span></span><br><span class="line">    cs1.close()</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+def main():
+    # 创建Connection连接
+    conn = connect(host=&#39;localhost&#39;,port=3306,database=&#39;jing_dong&#39;,user=&#39;root&#39;,password=&#39;mysql&#39;,charset=&#39;utf8&#39;)
+    # 获得Cursor对象
+    cs1 = conn.cursor()
+    # 执行insert语句，并返回受影响的行数：添加一条数据
+    # 增加
+    count = cs1.execute(&#39;insert into goods_cates(name) values(&quot;硬盘&quot;)&#39;)
+    #打印受影响的行数
+    print(count)
 
+    count = cs1.execute(&#39;insert into goods_cates(name) values(&quot;光盘&quot;)&#39;)
+    print(count)
+
+    # # 更新
+    # count = cs1.execute(&#39;update goods_cates set name=&quot;机械硬盘&quot; where name=&quot;硬盘&quot;&#39;)
+    # # 删除
+    # count = cs1.execute(&#39;delete from goods_cates where id=6&#39;)
+
+    # 提交之前的操作，如果之前已经之执行过多次的execute，那么就都进行提交
+        conn.commit()
+
+    # 关闭Cursor对象
+    cs1.close()
+    # 关闭Connection对象
+    conn.close()
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
 <hr>
-<h2 id="查询多行数据"><a href="#查询多行数据" class="headerlink" title="查询多行数据"></a>查询多行数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 创建Connection连接</span></span><br><span class="line">    conn = connect(host=<span class="string">'localhost'</span>,port=<span class="number">3306</span>,user=<span class="string">'root'</span>,password=<span class="string">'mysql'</span>,database=<span class="string">'jing_dong'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">    <span class="comment"># 获得Cursor对象</span></span><br><span class="line">    cs1 = conn.cursor()</span><br><span class="line">    <span class="comment"># 执行select语句，并返回受影响的行数：查询一条数据</span></span><br><span class="line">    count = cs1.execute(<span class="string">'select id,name from goods where id&gt;=4'</span>)</span><br><span class="line">    <span class="comment"># 打印受影响的行数</span></span><br><span class="line">    print(<span class="string">"查询到%d条数据:"</span> % count)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># for i in range(count):</span></span><br><span class="line">    <span class="comment"># # 获取查询的结果</span></span><br><span class="line">    <span class="comment"># result = cs1.fetchone()</span></span><br><span class="line">    <span class="comment"># # 打印查询的结果</span></span><br><span class="line">    <span class="comment"># print(result)</span></span><br><span class="line">    <span class="comment"># # 获取查询的结果</span></span><br><span class="line"></span><br><span class="line">    result = cs1.fetchall()</span><br><span class="line">    print(result)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 关闭Cursor对象</span></span><br><span class="line">    cs1.close()</span><br><span class="line">    conn.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h2 id="查询一行数据"><a href="#查询一行数据" class="headerlink" title="查询一行数据"></a>查询一行数据</h2><pre><code class="python">from pymysql import *
+
+def main():
+    # 创建Connection连接
+    conn = connect(host=&#39;localhost&#39;,port=3306,user=&#39;root&#39;,password=&#39;mysql&#39;,database=&#39;jing_dong&#39;,charset=&#39;utf8&#39;)
+    # 获得Cursor对象
+    cs1 = conn.cursor()
+    # 执行select语句，并返回受影响的行数：查询一条数据
+    count = cs1.execute(&#39;select id,name from goods where id&gt;=4&#39;)
+    # 打印受影响的行数
+    print(&quot;查询到%d条数据:&quot; % count)
+
+    for i in range(count):
+    # 获取查询的结果
+    result = cs1.fetchone()
+    # 打印查询的结果
+    print(result)
+    # 获取查询的结果
+
+    # 关闭Cursor对象
+    cs1.close()
+    conn.close()
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+<hr>
+<h2 id="查询多行数据"><a href="#查询多行数据" class="headerlink" title="查询多行数据"></a>查询多行数据</h2><pre><code class="python">from pymysql import *
+
+def main():
+    # 创建Connection连接
+    conn = connect(host=&#39;localhost&#39;,port=3306,user=&#39;root&#39;,password=&#39;mysql&#39;,database=&#39;jing_dong&#39;,charset=&#39;utf8&#39;)
+    # 获得Cursor对象
+    cs1 = conn.cursor()
+    # 执行select语句，并返回受影响的行数：查询一条数据
+    count = cs1.execute(&#39;select id,name from goods where id&gt;=4&#39;)
+    # 打印受影响的行数
+    print(&quot;查询到%d条数据:&quot; % count)
+
+    # for i in range(count):
+    # # 获取查询的结果
+    # result = cs1.fetchone()
+    # # 打印查询的结果
+    # print(result)
+    # # 获取查询的结果
+
+    result = cs1.fetchall()
+    print(result)
+
+    # 关闭Cursor对象
+    cs1.close()
+    conn.close()
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+
     </div>
     
         <div class="reward" ontouchstart>
